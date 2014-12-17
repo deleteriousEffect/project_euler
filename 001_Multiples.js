@@ -9,11 +9,15 @@ function multipleOf(limit) {
     var i,
         arr = [];
     for (i = 1; i < limit; i += 1) {
-        if (i % 3 === 0 || i % 5 === 0) { 
+        if (i % 3 === 0 || i % 5 === 0) {
             arr.push(i);
         }
     }
     return arr;
 }
 
-console.log(multipleOf(10));
+var answer = multipleOf(1000).reduce(function (a, b) {
+    return a + b;
+});
+
+console.log(answer);
