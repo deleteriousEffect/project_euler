@@ -3,21 +3,33 @@
  
    Find the sum of all the multiples of 3 or 5 below 1000. */
 
+//accepts array of multiples and optional endPoint, default is 1000
 
-function multipleOf(limit) {
+function multipleOf(multiples, endPoint) {
     'use strict';
     var i,
+        limit = endPoint || 1000,
+        sortedMultiples = multiples.sort(), // sorted array should return sooner
         arr = [];
+        // callback for .some method
+    function isMultiple(e) {
+        if (i % e === 0) {
+            return true;
+        }
+    }
     for (i = 1; i < limit; i += 1) {
-        if (i % 3 === 0 || i % 5 === 0) {
+        //pushes i to arr if i is a multiple of any member of the array
+        if (sortedMultiples.some(isMultiple)) {
             arr.push(i);
         }
     }
     return arr;
 }
-
-var answer = multipleOf(1000).reduce(function (a, b) {
+        //sums values of array returned by multipleOf function
+var answer = multipleOf([3, 5]).reduce(function (a, b) {
+    'use strict';
     return a + b;
 });
 
 console.log(answer);
+
