@@ -29,4 +29,17 @@ function fibsTo(limit) {
     return arr;
 }
 
-console.log(fibsTo(4000000));
+function evens (arr) {
+    var i,
+        limit = arr.length,
+        evenArr = [];
+
+    for (i = 0; i <= limit; i += 1) {
+       if (arr[i] % 2 === 0) {
+           evenArr.push(arr[i]);
+       }
+    }
+    return evenArr;
+}
+
+console.log(evens(fibsTo(100)));
