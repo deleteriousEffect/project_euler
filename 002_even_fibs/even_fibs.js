@@ -42,4 +42,8 @@ function evens (arr) {
     return evenArr;
 }
 
-console.log(evens(fibsTo(100)));
+var evenFibs = evens(fibsTo(4000000));
+
+console.log(evenFibs.reduce(function(a, b) {
+    return a + b;
+}));
