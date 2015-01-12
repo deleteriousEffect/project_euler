@@ -20,10 +20,29 @@ function isPalindrome (num) {
                                              //same process here, only reversed
     for (i = numStringLen -1; i >= halfNumString; i -= 1) {
         secondHalfReverse += numString[i];
-        console.log(secondHalfReverse);
     }
     if (firstHalf === secondHalfReverse) {
         return true;
     }
     return false;
 }
+
+function largestPalindromeProduct(num1, num2) {
+    var i,
+        j,
+        product,
+        largestPalindrome = 0;
+
+    for (i = num1; i > 0; i -= 1) {
+        for (j = num2; j > 0; j -= 1) {
+            product = i * j;
+            if (isPalindrome(product) && product > largestPalindrome) {
+                largestPalindrome = product;
+            }
+        }
+    }
+    return largestPalindrome;
+}
+
+console.log(largestPalindromeProduct(999, 999));
+console.log(isPalindrome(906609));
