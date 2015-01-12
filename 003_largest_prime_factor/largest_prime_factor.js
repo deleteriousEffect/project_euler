@@ -17,9 +17,18 @@ function isPrime(num) {
     return true;
 }
 
-console.log(isPrime(2));
-console.log(isPrime(3));
-console.log(isPrime(5));
-console.log(isPrime(7));
-console.log(isPrime(8));
-console.log(isPrime(1));
+function largestPrimeFactorOf(num) {
+    var i,
+        m = Math.sqrt(num),
+        primeFactorArr = [];
+
+    for (i = 3; i < m; i +=2) {
+        if (isPrime(i) && num % i === 0) {
+            primeFactorArr.push(i);
+        }
+    }
+    return primeFactorArr.pop();
+}
+
+console.log(largestPrimeFactorOf(13195));
+console.log(largestPrimeFactorOf(600851475143));
