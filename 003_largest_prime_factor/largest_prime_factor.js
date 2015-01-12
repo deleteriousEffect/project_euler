@@ -30,5 +30,4 @@ function largestPrimeFactorOf(num) {
     return primeFactorArr.pop();
 }
 
-console.log(largestPrimeFactorOf(13195));
 console.log(largestPrimeFactorOf(600851475143));
