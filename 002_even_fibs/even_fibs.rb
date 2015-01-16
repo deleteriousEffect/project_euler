@@ -10,9 +10,7 @@
 
 # generates fibonacci-like arrays whose members do not exceed a limit
 # user may define first two numbers, standard fibonacci sequence is the default
-def sequence_to(limit, a = 0, b = 1)
-  # initialize array to hold sequence
-  sequence = [a, b]
+def sequence_to(limit, sequence = [0, 1])
   loop do
     # push the sum of the last two elements of the aray onto the array
     sequence.push(sequence.last(2).inject(:+))
@@ -34,4 +32,4 @@ end
 # solution to project euler 2
 puts sum_of_even_elements(sequence_to(4_000_000))
 # lucas numbers variation
-puts sum_of_even_elements(sequence_to(4_000_000, 2, 1))
+puts sum_of_even_elements(sequence_to(4_000_000, [2, 1]))
