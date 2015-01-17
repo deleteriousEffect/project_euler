@@ -8,22 +8,21 @@
 #
 # https://projecteuler.net/problem=2
 
-# generates fibonacci-like arrays whose members do not exceed a limit
-# user may define first two numbers, standard fibonacci sequence is the default
+# Generates fibonacci-like arrays whose members do not exceed a limit.
+# User may define first two numbers, standard fibonacci sequence is the default.
 def sequence_to(limit, sequence = [0, 1])
   loop do
-    # push the sum of the last two elements of the aray onto the array
+    # Push the sum of the last two elements of the aray onto the array.
     sequence.push(sequence.last(2).inject(:+))
-    # if the sequence has exceeded the limit break from the loop
-    # and pop the last element
+    # Once the last element has exceeded the limit, pop it and exit the loop.
     break if sequence.last > limit && sequence.pop
   end
-  # return sequence
   sequence
 end
 
 def sum_of_even_elements(array)
   array.inject(0) do |a, e|
+    # Sum each even element of the array together.
     a += e if e.even?
     a
   end
