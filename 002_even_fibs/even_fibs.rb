@@ -15,7 +15,7 @@ def sequence_to(limit, sequence = [0, 1])
     # Push the sum of the last two elements of the aray onto the array.
     sequence.push(sequence.last(2).inject(:+))
     # Once the last element has exceeded the limit, pop it and exit the loop.
-    break if sequence.last > limit && sequence.pop
+    break if sequence.last.abs > limit && sequence.pop.abs
   end
   sequence
 end
