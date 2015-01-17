@@ -12,7 +12,7 @@
 # User may define first two numbers, standard fibonacci sequence is the default.
 def sequence_to(limit, sequence = [0, 1])
   loop do
-    # Push the sum of the last two elements of the aray onto the array.
+    # Push the sum of the last two elements onto the array.
     sequence.push(sequence.last(2).inject(:+))
     # Once the last element has exceeded the limit, pop it and exit the loop.
     break if sequence.last.abs > limit && sequence.pop.abs
