@@ -10,7 +10,7 @@
 function multipleOf(multiples, endPoint) {
     'use strict';
     var i,
-        limit = endPoint || 1000,
+        limit = endPoint || 1000, //defaults to 1000, if user doesn't specify
         sortedMultiples = multiples.sort(), // sorted array should return sooner
         arr = [];
         // callback for .some method
