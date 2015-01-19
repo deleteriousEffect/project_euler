@@ -12,7 +12,7 @@ function isPrime(num) {
     if (num < 2) { return false; } // numbers less than 2 are not prime
 
     // starting at 3, check if every odd number
-    // less than the square root of the number to be tested
+    // less than the square root of num
     // is a factor of that number
     for (i = 3; i < m; i += 2) {
         if (num % i === 0) {
@@ -26,14 +26,16 @@ function isPrime(num) {
 function largestPrimeFactorOf(num) {
     var i,
         m = Math.sqrt(num),
-        primeFactorArr = [];
-
+        largestPrime;
+    //starting at 3, check it every odd number
+    //less than the square root of num
     for (i = 3; i < m; i += 2) {
         if (isPrime(i) && num % i === 0) {
-            primeFactorArr.push(i);
+    //is i is prime and a factor of num, overwrite largestPrime
+            largestPrime = i;
         }
     }
-    return primeFactorArr.pop();
+    return largestPrime;
 }
 
 console.log(largestPrimeFactorOf(600851475143));
