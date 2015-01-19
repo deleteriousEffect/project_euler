@@ -6,7 +6,9 @@
 //https://projecteuler.net/problem=4
 
 //test to see if a number is a palindrome
-function isPalindrome (num) {
+'use strict';
+
+function isPalindrome(num) {
     var i,
         numString = num.toString(),         //number to string
         numStringLen = numString.length,    //length of the string
@@ -14,28 +16,36 @@ function isPalindrome (num) {
         firstHalf = '',                     //empty strings to hold first 
         secondHalfReverse = '';             //and reversed second halfs of the string
 
-    for (i = 0; i < halfNumString; i += 1) { //"push" first half of string into firstHalf
-        firstHalf += numString[i];           //ignoring character in the middle if there is one
+    //"push" first half of string into firstHalf
+    //ignoring character in the middle if there is one
+    for (i = 0; i < halfNumString; i += 1) {
+        firstHalf += numString[i];
     }
-                                             //same process here, only reversed
-    for (i = numStringLen -1; i >= halfNumString; i -= 1) {
+    //same process here, only reversed
+    for (i = numStringLen - 1; i >= halfNumString; i -= 1) {
         secondHalfReverse += numString[i];
     }
+    // if the halves are the same, it's a palindrome
     if (firstHalf === secondHalfReverse) {
         return true;
     }
     return false;
 }
 
+//finds the largest prime number that is a product of
+//any two numbers and all numbers below them
 function largestPalindromeProduct(num1, num2) {
     var i,
         j,
         product,
         largestPalindrome = 0;
 
+    //find the all products of num1 and num2 and all non negative numbers below them
     for (i = num1; i > 0; i -= 1) {
         for (j = num2; j > 0; j -= 1) {
             product = i * j;
+            //if the product is a palindrome and larger
+            //than the current value of largestPalindrome it is assigned to largestPalindrome
             if (isPalindrome(product) && product > largestPalindrome) {
                 largestPalindrome = product;
             }
