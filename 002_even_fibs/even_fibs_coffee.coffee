@@ -8,4 +8,23 @@
 #
 # https://projecteuler.net/problem=2
 
+# Generates Fibbonacci-like sequence whose members do not exceed the limit
+sequenceTo = (limit, sequence = [0, 1]) ->
+    loop
+        len = sequence.length
+        # Push the sum of the last two members of the array onto the array
+        sequence.push(sequence[len - 1] + sequence[len - 2])
+        # Exit the loop when the limit is exceeded and pop it off the array
+        if sequence[len] > limit
+            sequence.pop()
+            break
+    sequence
 
+evenElementsOf = (array) ->
+    evenArr = (element for element in array when element % 2 is 0)
+
+evenFibs = evenElementsOf(sequenceTo(4000000))
+
+# Log the sum of evenFibs to the console
+console.log(evenFibs.reduce (a,b) ->
+    a + b )
