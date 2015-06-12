@@ -8,7 +8,7 @@
 //test to determine if a number is prime
 function isPrime(num) {
     var i,
-        m = Math.sqrt(num); // sqaure root of number to test
+        m = Math.sqrt(num); // square root of number to test
     if (num < 2) { return false; } // numbers less than 2 are not prime
 
     // starting at 3, check if every odd number
